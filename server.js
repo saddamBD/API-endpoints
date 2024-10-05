@@ -1,22 +1,22 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const courses = require("./Courses.json");
+const products = require("./Products.json");
 
 app.use(cors());
 
-// Endpoint to get all courses
-app.get("/api/courses", (req, res) => {
-  res.json(courses);
+// Endpoint to get all products
+app.get("/api/products", (req, res) => {
+  res.json(products);
 });
 
-// Endpoint to get a specific course by ID
-app.get("/api/courses/:id", (req, res) => {
-  const course = courses.find((p) => p._id === req.params.id);
-  if (course) {
-    res.json(course);
+// Endpoint to get a specific products by ID
+app.get("/api/products/:id", (req, res) => {
+  const product = products.find((p) => p._id === req.params.id);
+  if (product) {
+    res.json(product);
   } else {
-    res.status(404).send("course not found");
+    res.status(404).send("product not found");
   }
 });
 
